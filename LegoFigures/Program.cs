@@ -1,5 +1,6 @@
 ﻿using System;
 using LegoFigures.Heads;
+using LegoFigures.Legs;
 
 namespace LegoFigures
 {
@@ -14,6 +15,11 @@ namespace LegoFigures
             var head2 = new HairyHead();
             var figure2 = new MiniFigure(head2);
             figure2.DoStuff();
+
+            var angryLegs = new AngryLegs();
+            var figure3 = new MiniFigure(angryLegs);
+            figure3.DoStuff();
+
 
 
             Console.ReadLine();
