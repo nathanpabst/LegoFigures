@@ -1,8 +1,7 @@
 ﻿using LegoFigures.Heads;
-using LegoFigures.Legs;
+//using LegoFigures.Legs;
 using System;
-using System.Collections.Generic;
-using System.Text;
+using LegoFigures.Torsos;
 
 namespace LegoFigures
 {
@@ -10,22 +9,43 @@ namespace LegoFigures
     {
         private readonly HeadBase _head;
         private readonly LegBase _legs;
+        private readonly Torso _torso;
 
-        public MiniFigure(HeadBase head)
+        public MiniFigure(HeadBase head, Torso torso)
         {
             _head = head;
+            _torso = torso;
         }
 
-        public MiniFigure(LegBase legs)
-        {
-            _legs = legs;
-        }
-        public void DoStuff()
+        //public MiniFigure(LegBase legs)
+        //{
+        //    _legs = legs;
+        //}
+
+        public void Greet()
         {
             _head.Talk();
+           
+        }
+
+        public void TakeABreak()
+        {
             _head.Eat();
-            _legs.KarateKick();
-            _legs.RunAway();
+            
+            switch (_torso)
+            {
+                case BirdTorso bird :
+                    bird.Fly();
+                    bird.Dance();
+                    bird.Fly();
+                    break;
+                case ReptilianTorso reptile :
+                    reptile.Dance();
+                    break;
+                case Torso boringTorso :
+                    Console.WriteLine($"The boring torso was {boringTorso.Color} and has {boringTorso.NumberOfArms}");
+                    break;
+            }
         }
 
 
