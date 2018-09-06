@@ -1,7 +1,7 @@
-﻿using System;
-using LegoFigures.Heads;
+﻿using LegoFigures.Heads;
 using LegoFigures.Legs;
 using LegoFigures.Torsos;
+using System;
 
 namespace LegoFigures
 {
@@ -9,23 +9,36 @@ namespace LegoFigures
     {
         static void Main(string[] args)
         {
-            var head = new BaldHead();
+            var head = new HairyHead();
             var reptileBody = new ReptilianTorso();
             reptileBody.Color = "Brown";
+            var babyLegs = new BabyLegs();
+            babyLegs.Length = 19;
+            babyLegs.MainColor = "purple";
+            babyLegs.ShoeColor = "yellow";
 
-            var figure = new MiniFigure(head, reptileBody);
+            var bestTeacher = new MiniFigure("Nathan", head, reptileBody, babyLegs);
 
-            figure.Greet();
-            figure.TakeABreak();
+            bestTeacher.Greet();
+            babyLegs.Walk();
 
+            var head2 = new MartinHead();
+            var birdBody = new BirdTorso();
+            birdBody.Color = "pink";
+            var manLegs = new Legs.Legs();
+            manLegs.Length = 10;
+            manLegs.MainColor = "blue";
+            manLegs.ShoeColor = "brown";
 
-            //var head2 = new HairyHead();
-            //var figure2 = new MiniFigure(head2);
-            //figure2.DoStuff();
+            var martin = new MiniFigure("Martin", head2, birdBody, manLegs);
 
-            //var angryLegs = new AngryLegs();
-            //var figure3 = new MiniFigure(angryLegs);
-            //figure3.DoStuff();
+            martin.Greet();
+            manLegs.Walk();
+
+            bestTeacher.Karate(martin);
+
+            martin.TakeABreak();
+            bestTeacher.TakeABreak();
 
             Console.ReadLine();
         }

@@ -20,12 +20,7 @@ namespace LegoFigures.Torsos
                 Console.WriteLine("I am a grounded bird.");
             }
         }
-        class Torso
-        {
-            public string Color { get; set; }
-
-
-        }
+       
     }
 
 }

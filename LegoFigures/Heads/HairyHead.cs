@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LegoFigures.Heads
 {
-    class HairyHead : HeadBase
+    class HairyHead : Head
     {
         public override bool HasHair => true;
 

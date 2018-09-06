@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace LegoFigures.Heads
 {
-    abstract class HeadBase
+    abstract class Head
     {
         public abstract bool HasHair { get; }
 
@@ -14,6 +12,6 @@ namespace LegoFigures.Heads
         }
 
         public abstract void Eat();
-        
+
     }
 }

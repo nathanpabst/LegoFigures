@@ -1,30 +1,42 @@
 ﻿using LegoFigures.Heads;
-//using LegoFigures.Legs;
-using System;
 using LegoFigures.Torsos;
+using LegoFigures.Legs;
+using System;
 
 namespace LegoFigures
 {
     class MiniFigure
     {
-        private readonly HeadBase _head;
-        private readonly LegBase _legs;
+        private readonly Head _head;
         private readonly Torso _torso;
+        private readonly Legs.Legs _legs;
 
-        public MiniFigure(HeadBase head, Torso torso)
+        public string Name { get; }
+        public string Description
         {
-            _head = head;
-            _torso = torso;
+            get
+            {
+                return $"{(_head.HasHair ? "Hairy" : "Bald" )} {_torso.Color} {_torso.NumberOfArms} armed thing";
+            } 
         }
 
-        //public MiniFigure(LegBase legs)
-        //{
-        //    _legs = legs;
-        //}
+        public MiniFigure(string name, Head head, Torso torso, Legs.Legs legs)
+        {
+            Name = name;
+            _head = head;
+            _torso = torso;
+            _legs = legs;
+        }
+
+        public void Karate(MiniFigure target)
+        {
+            _legs.Kick(target);
+        }
 
         public void Greet()
         {
             _head.Talk();
+            _torso.Wave();
            
         }
 
@@ -37,10 +49,10 @@ namespace LegoFigures
                 case BirdTorso bird :
                     bird.Fly();
                     bird.Dance();
-                    bird.Fly();
                     break;
                 case ReptilianTorso reptile :
                     reptile.Dance();
+                    reptile.Twist();
                     break;
                 case Torso boringTorso :
                     Console.WriteLine($"The boring torso was {boringTorso.Color} and has {boringTorso.NumberOfArms}");
